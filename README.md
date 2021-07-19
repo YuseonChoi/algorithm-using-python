@@ -1,3 +1,9 @@
 # Algorithm 👩‍💻
 
-Python only
+**Python only**
+
+✔ Self-study
+✔ Baekjoon
+✔ Programmers
+✔ LeetCode
+✔ CodeUp
