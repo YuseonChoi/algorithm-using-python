@@ -1,11 +1,7 @@
-table = {
-        ')':'(',
-        '}':'{',
-        ']':'[',
-    }
+s = 'sfssf0sfs2sfsf35'
 
-
-if ')' in table:
-    print('True')
-else:
-    print('False')
+for i in s:
+    if i.isdigit():
+        print(i)
+    else:
+        pass
