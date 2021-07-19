@@ -1,7 +1,7 @@
 """
 <유효한 괄호>  https://leetcode.com/problems/valid-parentheses/
 
-괄호로 된 입력값이 올바른지 판별하라. 
+괄호로 된 입력값이 올바른지 판별하라.  
 
 """
 
