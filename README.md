@@ -1,3 +1,3 @@
 # Algorithm 👩‍💻
 
-## Python only
+Python only
