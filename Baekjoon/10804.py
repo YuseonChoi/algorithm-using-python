@@ -13,14 +13,38 @@ def cardReverse(nums,a,b):
         res.append(n[j])
     for k in range(b,len(nums)):
         res.append(nums[k])
-
     return res
 
 
-nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-
+nums = list(range(1,21))
 for _ in range(10):
     a, b = map(int, input().split())
     nums = cardReverse(nums,a,b)
 
 print(' '.join(map(str, nums)))
+
+
+
+""" solution-2 직접 구현 """
+
+nums = list(range(0,21))
+for _ in range(10):
+    a,b = map(int, input().split())
+
+    for i in range((b-a)//2+1):
+        nums[a+i], nums[b-i] = nums[b-i], nums[a+i]
+nums.pop(0)
+print(' '.join(map(str, nums))) 
+
+
+
+""" solution-3 직접 구현 """
+nums = list(range(1,21))
+for _ in range(10):
+    a,b = map(int, input().split())
+
+    for i in range((b-a)//2+1):
+        nums[a+i-1], nums[b-i-1] = nums[b-i-1], nums[a+i-1]
+
+print(' '.join(map(str, nums))) 
+
