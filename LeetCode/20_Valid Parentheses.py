@@ -4,7 +4,7 @@
 괄호로 된 입력값이 올바른지 판별하라.
 
 """
-
+ 
 class Solution(object):
     def isValid(self, s):
         stack = []
