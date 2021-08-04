@@ -58,7 +58,6 @@ start = end = N//2
 for i in range(N):
     for j in range(start, end+1):
         sum += apples[i][j]
-        print(i,j)
     if i < N//2:
         start -= 1
         end += 1
