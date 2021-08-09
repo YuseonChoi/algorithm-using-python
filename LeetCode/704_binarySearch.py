@@ -52,9 +52,9 @@ class Solution2(object):
 
 
 
-""" solution-2 이진검색 구현, 재귀 풀이 """
+""" solution-3 이진검색 구현, 재귀 풀이 """
 
-class Solution(object):
+class Solution3(object):
     def search(self, nums, target):
         def binary_search(left, right):
             mid = (left+right)//2
@@ -72,11 +72,11 @@ class Solution(object):
         
 
 
-""" solution-3 이진 검색 모듈 """
+""" solution-4 이진 검색 모듈 """
 
 import bisect
 
-class Solution(object):
+class Solution4(object):
     def search(self, nums, target):
         index = bisect.bisect_left(nums, target)
 
