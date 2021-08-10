@@ -1,4 +1,4 @@
-""" 카드2 https://www.acmicpc.net/problem/2164 """
+""" <카드2> https://www.acmicpc.net/problem/2164 """
 
 """ solution-1 list 사용, 시간 초과 """
 
