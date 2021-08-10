@@ -59,7 +59,6 @@ for i in M_list:
 
 
 
-
 """ solution-2 딕셔너리만 사용 """
 
 import sys
