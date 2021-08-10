@@ -1,4 +1,4 @@
-""" 카드 역배치 https://www.acmicpc.net/problem/10804 """
+""" <카드 역배치> https://www.acmicpc.net/problem/10804 """
 
 """ solution-1 파이썬 문자열 슬라이싱 이용 """
 
