@@ -35,7 +35,6 @@ def binarySearch(nums, target):
 # 이분탐색 사용시, 해당 리스트는 정렬된 상태여야 함
 
 
-# input
 N = int(input())
 N_list = list(map(int, input().split()))
 N_sorted = sorted(N_list)
@@ -43,7 +42,10 @@ N_sorted = sorted(N_list)
 M = int(input())
 M_list = list(map(int, input().split()))
 
-# dict - N_sorted 빈도수 구하기
+
+# dic[key] = value
+# key는 '숫자', value는 '해당 숫자의 빈도수'
+# {-10: 2, 2: 1, 3: 2, 6: 1, 7: 1, 10: 3}
 global dic
 dic = {}
 for i in N_sorted:
@@ -54,6 +56,7 @@ for i in N_sorted:
 
 for i in M_list:
     print(binarySearch(N_sorted, i), end=' ')
+
 
 
 
@@ -102,6 +105,19 @@ M_list = list(map(int, input().split()))
 C = Counter(N_list)
 
 # print(C)
-# Counter({10: 3, 3: 2, -10: 2, 6: 1, 2: 1, 7: 1})
+# Counter({10: 3, 3: 2, -10: 2, 6:1, 2: 1, 7: 1})
 
 print(' '.join(f'{C[i]}' if i in C else '0' for i in M_list))
+
+
+
+"""
+* 참고 *
+
+- dictionary가 list 검색이 빠른 이유 (https://velog.io/@gyuseok-dev/python-list-vs-dictionary-uvss7x73)
+dictionary는 hash table을 이용하는데, hash table은 key값에 따라 value가 저장될 위치가 결정된다. 그래서 탐색시 key값이 있으면 굳이 배열의 전체를 탐색하지 않고도 value를 얻을 수 있고, list와 dictionary의 탐색속도가 결과와 같이 차이가 발생함을 알 수 있다.
+
+- Counter 사용법
+https://www.daleseo.com/python-collections-counter/
+
+"""
