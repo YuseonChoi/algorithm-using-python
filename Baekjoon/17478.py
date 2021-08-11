@@ -47,6 +47,7 @@ print('어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 
 
 
 """
+<작동방식>
 ex) input = 4일 때,
 question(0,4) 호출!
 f'{sentence}{question(1, 4)}
