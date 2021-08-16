@@ -5,6 +5,5 @@ Class/numSequence.py
 Baekjoon/1654.py
 Baekjoon/2745.py
 Baekjoon/11005.py
-Class/dryPersimmon.py
 
 """
