@@ -1,6 +1,6 @@
 """ <쇠막대기> https://www.acmicpc.net/problem/10799 
 
-[input]
+[input] 
 ()(((()())(())()))(())
 
 [output]
