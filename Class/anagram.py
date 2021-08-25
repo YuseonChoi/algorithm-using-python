@@ -44,7 +44,32 @@ else:
 
 
 
-""" solution-2 defaultdict 사용 """
+""" solution-2 dict 개선 """
+
+import sys
+input = sys.stdin.readline
+
+a = input()
+b = input()
+
+dic = dict()
+
+for i in a:
+    dic[i] = dic.get(i,0) + 1
+for i in b:
+    dic[i] = dic.get(i,0) - 1
+
+for i in a:
+    if dic[i] > 0:
+        print("NO")
+        break
+
+else:
+    print("YES")
+
+
+
+""" solution-3 defaultdict 사용 """
 
 # 알파벳 나열 순서는 다르지만 그 구성(개수)은 똑같다.
 import sys
