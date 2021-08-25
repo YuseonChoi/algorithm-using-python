@@ -10,7 +10,7 @@ YES
 
 """
 
-""" solution-2 dict 해쉬, get함수 사용 """
+""" solution-1 dict 해쉬, get함수 사용 """
 
 import sys
 input = sys.stdin.readline
