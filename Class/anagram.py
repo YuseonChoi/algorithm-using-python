@@ -60,7 +60,7 @@ for i in b:
     dic[i] = dic.get(i,0) - 1
 
 for i in a:
-    if dic[i] > 0:
+    if dic[i] != 0:
         print("NO")
         break
 
@@ -69,7 +69,36 @@ else:
 
 
 
-""" solution-3 list 해쉬 """
+""" solution-3 defaultdict 사용 """
+
+# 알파벳 나열 순서는 다르지만 그 구성(개수)은 똑같다.
+import sys
+from collections import defaultdict
+input = sys.stdin.readline
+
+
+def solution(a,b):
+    dic = defaultdict(int)
+
+    for i in a:
+        if i not in dic:
+            dic[i] = 1
+        else:
+            dic[i] += 1
+
+    for i in b:
+        if b.count(i) != dic[i]:
+            return "NO"
+    return "YES"
+
+
+a = input()
+b = input()
+print(solution(a,b))
+
+    
+
+""" solution-4 list 해쉬 """
 
 import sys
 input = sys.stdin.readline
@@ -106,31 +135,3 @@ else:
 
 
 
-""" solution-4 defaultdict 사용 """
-
-# 알파벳 나열 순서는 다르지만 그 구성(개수)은 똑같다.
-import sys
-from collections import defaultdict
-input = sys.stdin.readline
-
-
-def solution(a,b):
-    dic = defaultdict(int)
-
-    for i in a:
-        if i not in dic:
-            dic[i] = 1
-        else:
-            dic[i] += 1
-
-    for i in b:
-        if b.count(i) != dic[i]:
-            return "NO"
-    return "YES"
-
-
-a = input()
-b = input()
-print(solution(a,b))
-
-    
