@@ -2,12 +2,10 @@
 
 **Python only**
 
-✔ Self-study
+✔ Algo
 
 ✔ Baekjoon
 
 ✔ Programmers
 
 ✔ LeetCode
-
-✔ CodeUp
