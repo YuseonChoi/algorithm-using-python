@@ -25,8 +25,9 @@ input = sys.stdin.readline
 def DFS(v):
     if v==n+1:  # 정점이 끝에 도달했다면
         for i in range(1, n+1):
-            if node[i]==1:
-                print(i, end=' ')
+            if node[i]==1:  # 값이 존재한다면
+                print(i, end='')
+        print()
     else:
         node[v]=1
         DFS(v+1)
@@ -35,7 +36,7 @@ def DFS(v):
 
 
 n = int(input())
-node = [0] * (n+1)
+node = [0] * (n+1) 
 DFS(1)
 
 
