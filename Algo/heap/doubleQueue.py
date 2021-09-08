@@ -74,9 +74,11 @@ def solution(operations):
     else:
         return [0,0]
 
+# nlargest(N,lst) : lst(리스트) 안에서 가장 큰 N개의 아이템을 찾아줌
+# nsmallest(N,lst) : lst(리스트) 안에서 가장 작은 N개의 아이템을 찾아줌
 
 print(solution(["I 16","D 1"]))                                                                 # [0,0]
 print(solution(["I 7","I 5","I -5","D -1"]))                                                    # [7,5]
-print(solution(	["I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"]))   # [333, -45]
+print(solution(["I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"]))    # [333, -45]
 print(solution(["I 2","I 4","D -1", "I 1", "D 1"]))                                             # [1,1]
 
