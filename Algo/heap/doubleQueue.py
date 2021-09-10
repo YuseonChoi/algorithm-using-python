@@ -64,7 +64,8 @@ def solution(operations):
             hp.heappush(res, int(n))
         elif op == 'D' and n == '1':
             if res:
-                res.pop(res.index(hp.nlargest(1,res)[0]))   # 가장 큰 원소 한 개를 리스트로 리턴
+                # res.pop(res.index(hp.nlargest(1,res)[0]))   # 가장 큰 원소 한 개를 리스트로 리턴
+                res.remove(hp.nlargest(1,res)[0])
         else:
             if res:
                 hp.heappop(res)  # 최솟값을 빼줌
