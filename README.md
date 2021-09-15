@@ -1,6 +1,6 @@
 # Algorithm 👩‍💻
 
-**Python only**
+**Python only 🔥**
 
 ✔ Algo
 
