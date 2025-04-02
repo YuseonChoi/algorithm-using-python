@@ -24,4 +24,4 @@ graph = {
 
 visited = [False for i in range(len(graph)+1)]
 
-dfs(1)  # 1,4,2,3,5 
+dfs(1)  # 1 4 2 3 5
