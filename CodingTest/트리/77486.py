@@ -51,6 +51,7 @@ amount = [12, 4, 2, 5, 10]
 print(solution(enroll, referral, seller, amount))
 
 
+
 # solution 2
 def solution(enroll, referral, seller, amount):
     # key값으로 enroll, value로 referral을 가지는 parent dict 생성
@@ -68,6 +69,47 @@ def solution(enroll, referral, seller, amount):
             money //=10
     
     return list(total.values())
+
+
+
+# solution 3 - 시간 초과
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.money = 0
+        self.parent = None
+
+def solution(enroll, referral, seller, amount):
+    answer = []
+    nodes = {
+        "center": Node("center")
+    }
+
+    # 부모, 자식 트리 구성
+    for a, b in zip(enroll, referral):
+        if b == "-":
+            nodes[a] = Node(a)
+            nodes[a].parent = nodes["center"]
+        else:
+            nodes[a] = Node(a)
+            nodes[a].parent = nodes[b]
+
+    for child, cost in zip(seller, amount):
+        cost = cost * 100
+        while True:
+            nodes[child].money += cost - cost // 10
+            child = nodes[child].parent.name
+            cost = cost // 10
+
+            if child == "center":
+                break
+
+    for name in enroll:
+        answer.append(nodes[name].money)
+
+    return answer
+
+
 
 
 """
