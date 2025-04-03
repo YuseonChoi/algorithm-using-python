@@ -22,4 +22,4 @@ def solution(N, stages):
     # sorted(dic, key=lambda ~) -> 특정 기준으로 정렬된 정렬된 딕셔너리 키값 반환
     result = sorted(failrate, key=lambda x : failrate[x], reverse=True)
         
-    return result
+    return result 
