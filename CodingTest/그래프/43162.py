@@ -2,9 +2,10 @@
 
 from collections import defaultdict
 
-def dfs(computers, visited, i):
-    visited[i] = True
-    for idx, connected in enumerate(computers[i]):
+def dfs(computers, visited, node):
+    visited[node] = True
+    for idx, connected in enumerate(computers[node]):
+        # 연결되어있는데 방문하지 않은 노드일 경우
         if connected and not visited[idx]:
             dfs(computers, visited, idx)
 
