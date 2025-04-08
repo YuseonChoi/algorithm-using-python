@@ -1,6 +1,6 @@
 """
 [너비 우선 탐색 구현]
-
+큐와 덱을 이용한 구현
 """
 
 from collections import deque
