@@ -1,53 +1,46 @@
-"""
-[부분 배낭 문제]
-무게와 가치가 있는 짐 items와 배낭 weight_limit이 주어질 때,
-부분 배낭 문제 (짐을 쪼갤 수 있음)를 푸는 함수를 작성하세요.
-"""
+def find(x, parents):
+    if parents[x] != x:
+        parents[x] = find(parents[x], parents)
+    return parents[x]
 
-# 각 물건의 단위 무게당 가치를 계산하여 items 리스트에 추가
-def calculate_unit_value(items):
-    for item in items:
-        item.append(item[1]/item[0])
-    return items
-
-
-# 단위 무게당 가치가 높은 순으로 물건을 정렬
-def sort_by_unit_value(items):
-    items.sort(key=lambda x: x[2], reverse=True)
-    return items
-
-
-def knapsack(items, weight_limit):
-    total_value = 0  # 선택한 물건들의 총 가치를 저장하는 변수
-    remaining_weight = weight_limit  # 남은 무게의 한도를 저장하는 변수
-
-    for item in items:
-        if item[0] <= remaining_weight:
-            # 물건을 통째로 선택
-            total_value += item[1]
-            remaining_weight -= item[0]
-            print(total_value)
-        else:
-            # 남은 무게 한도가 물건의 무게보다 작으면 쪼개서 일부분만 선택
-            fraction = remaining_weight / item[0]
-            total_value += item[1] * fraction
-            print(item[1]*fraction)
-            break
-    return total_value
-
-
-def solution(items, weight_limit):
-    items = calculate_unit_value(items)
-    items = sort_by_unit_value(items)
-    return round(knapsack(items, weight_limit),2)
+def union_set(x,y,parents,rank_data):
+    root1 = find(x, parents)
+    root2 = find(y, parents)
     
+    if root1 != root2:
+        if rank_data[root1] < rank_data[root2]:
+            parents[root1] = root2
+        elif rank_data[root1] > rank_data[root2]:
+            parents[root2] = root1
+        else:
+            parents[root2] = root1
+            rank_data[root1] += 1
+        
 
-# test case 1
-items = [[10,19],[7,10],[6,10]]
-weight_limit = 15
+def solution(k, operations):
+    # 초기의 각 부모 노드의 값은 현재 노드(인덱스)로 설정
+    parents = list(range(k))
+    rank_data = [0]*k    
+    results = []
+    for op in operations:
+        if op[0] =='u':
+            x = int(op[1])
+            y = int(op[2])
+            union_set(x,y,parents,rank_data)
+        elif op[0] == 'f':
+            x = int(op[1])
+            y = int(op[2])
+            # 파인드 연산을 통해 x,y의 루트노드가 같은지 확인해서 결과 저장
+            results.append(find(x,parents) == find(y,parents))
+
+    return results
+
+# test case 1 
+k=3
+operations = [['u','0','1'],['u','1','2'],['f','0','2']]  # [true]
 
 # test case 2
-items = [[10,60],[20,100],[30,120]]
-weight_limit = 50
+# k=4
+# operations = [['u','0','1'],['u','2','3'],['f','0','1'],['f','0','2']]  # [true, false]
 
-print(solution(items, weight_limit))
+print(solution(k, operations))
