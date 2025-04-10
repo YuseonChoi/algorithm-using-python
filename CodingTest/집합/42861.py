@@ -57,5 +57,6 @@ def solution(n, costs):
             union(r1, r2, parents, rank)
             min_cost += cost
             num_edge += 1
+            
     return min_cost 
         
