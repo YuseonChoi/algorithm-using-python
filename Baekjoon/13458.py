@@ -48,3 +48,17 @@ for i in app:
     dp[i] = tmp
 
 print(ans)
+
+
+""" solution 2 """
+N = int(input())
+app = list(map(int, input().split()))
+B, C = map(int, input().split())
+
+ans = N
+for i in app:
+    if i-B > 0:  # 부감독관이 필요한 경우
+        ans += ((i-B) + (C-1))//C
+
+print(ans)
+
