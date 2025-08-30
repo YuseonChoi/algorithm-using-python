@@ -72,6 +72,7 @@ arr = [list(map(int, input().split())) for _ in range(N)]
 
 M = N//2
 ans = 100*M*M
+
 dfs(0, [], [])
 print(ans)
 
