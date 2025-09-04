@@ -24,12 +24,12 @@ def solution(info, edges):
         if num_wolf >= num_lamb:
             return
         
-        next_nodes = to_visit[:]
-        next_nodes.extend(graph[node])
+        next_nodes = to_visit[:]  # 방문할 후보군
+        next_nodes.extend(graph[node])  # 현재 노드의 자식 노드도 후보군에 저장
 
         for n in next_nodes:
-            next_to_visit = next_nodes[:]
-            next_to_visit.remove(n)
+            next_to_visit = next_nodes[:]  # 후보 전체를 복사
+            next_to_visit.remove(n)  # 이번 턴에 선택한 노드는 제외
             dfs(n,next_to_visit,num_lamb,num_wolf)
 
     dfs(0,[],0,0) 
