@@ -10,3 +10,4 @@ def solution(A):
     ans += 1
 
     return ans
+
