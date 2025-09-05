@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-answer = 0
+answer = 0  # 전역변수 설정
 
 def solution(info, edges):
     global answer
