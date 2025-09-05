@@ -2,7 +2,6 @@
 
 from collections import defaultdict
 
-
 answer = 0
 
 def solution(info, edges):
