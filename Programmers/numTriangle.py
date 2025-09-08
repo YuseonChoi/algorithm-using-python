@@ -18,3 +18,17 @@ def solution(triangle):
         
     return max(triangle[N-1])
 
+
+
+""" solution2 """
+def get_max_sum(triangle):
+    while len(triangle) >= 2:
+        cur_line = triangle.pop()
+        for i, (x, y) in enumerate(zip(cur_line[:-1], cur_line[1:])):
+            triangle[-1][i] += max(x, y)
+    return triangle.pop()[0]
+
+def solution(triangle):
+    max_sum = get_max_sum(triangle)
+
+    return max_sum
