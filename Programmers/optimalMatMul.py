@@ -1,6 +1,5 @@
 """ <최적의 행렬 곱셈> """
 
-
 def solution(matrix_sizes):
     n = len(matrix_sizes)
     dp = [[float('inf')] * n for _ in range(n)]
@@ -21,3 +20,4 @@ def solution(matrix_sizes):
     return dp[0][n-1]
 
 print(solution([[5,3],[3,10],[10,6]]))
+
