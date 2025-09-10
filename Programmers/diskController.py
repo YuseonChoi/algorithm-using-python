@@ -26,6 +26,7 @@ def solution(jobs):
             answer += (time - t_ask)
 
         else:
+            # 현재 시점에서 처리할 작업이 하나도 없을 경우 다음 작업이 도착하는 순간으로 시간 점프 
             time = jobs[i][0]
 
     return answer // n
