@@ -1,6 +1,6 @@
 """ <단어 변환> https://school.programmers.co.kr/learn/courses/30/lessons/43163 """
 
-""" solution 1 - 내 풀이 """
+""" solution 1 - DFS 풀이 """
 def find_word_one_diff(curr, word):
     cnt = 0
     for c1, c2 in zip(curr, word):
@@ -35,65 +35,43 @@ def solution(begin, target, words):
 
 
 
-""" solution 2,3 - HSK 풀이
-- 2번은 DFS 방식 > 탐색 경로가 많으면 중복 재귀가 많아 비효율적
-- 3번은 BFS 방식 > 최단 경로 보장 + 중복 탐색 없음 -> 훨씬 효율적
-"""
+""" solution 2 - BFS 풀이 """
 
-def get_nstage(start, target, words, depth):
-    if start == target:
-        return depth
-    
-    min_stage = 100
-    for w in words:
-        if can_convert(start, w):
-            nstage = get_nstage(w, target, words-set([w]), depth+1)
-            min_stage = min(min_stage, nstage)
-    
-    return min_stage
+def find_word_one_diff(curr, word):
+    cnt = 0
+    for c1, c2 in zip(curr, word):
+        if c1 != c2:
+            cnt += 1
+    return cnt
 
 
-def get_nstage2(start, target, words):
-    stage = {w:0 for w in words}
+def bfs(start, target, words):
+    depth = {word:0 for word in words}
     
-    cur_words = [start]
+    curr_words = [start]
     next_words = set(words)
-    cur_stage = 1
+    curr_depth = 1
     
-    while next_words and (stage[target] == 0):
+    # 아직 방문하지 않은 단어가 있고 target에 도달하지 않은 경우 반복
+    while next_words and (depth[target]==0):
         candidate_words = []
-        for cur_word in cur_words:
-            for w in next_words:
-                if can_convert(cur_word, w):
-                    candidate_words.append(w)
-                    stage[w] = cur_stage
+        for curr_word in curr_words:
+            for next_word in next_words:
+                if find_word_one_diff(curr_word, next_word) == 1:
+                    candidate_words.append(next_word)
+                    depth[next_word] = curr_depth  # 현재 depth 기록
             next_words -= set(candidate_words)
-        cur_words = candidate_words
-        cur_stage += 1
-    
-    return stage[target]
-
-
-def can_convert(word1, word2):
-    count = 0
-    for i in range(len(word1)):
-        if word1[i] != word2[i]:
-            count += 1
-        if count > 1:
-            return False
-    return True if count == 1 else False
+        curr_words = candidate_words
+        curr_depth += 1
+        
+    return depth[target]
         
 
 def solution(begin, target, words):
-    words = set(words)
-    
+
     if target not in words:
         return 0
     
-    answer = get_nstage(begin, target, words, 0)
-    if answer == 100:
-        answer = 0
-    
-    # answer = get_nstage2(begin, target, words)
+    answer = bfs(begin, target, words)
     
     return answer
