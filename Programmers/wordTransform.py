@@ -1,42 +1,37 @@
 """ <단어 변환> https://school.programmers.co.kr/learn/courses/30/lessons/43163 """
 
 """ solution 1 - 내 풀이 """
-# 현재 단어와 다른 단어의 문자열 차이 구하기
-def diff_str(s1,s2):
-    return sum(c1!=c2 for c1,c2 in zip(s1,s2))
-    
-# 문자열 차이가 1인 후보 단어 구하기
-def find_word_one_diff(curr, words):
-    return [word for word in words if diff_str(curr, word) == 1]
-    
-def dfs(curr, target, words, visited, depth):
+def find_word_one_diff(curr, word):
+    cnt = 0
+    for c1, c2 in zip(curr, word):
+        if c1 != c2:
+            cnt += 1
+    return cnt
 
-    # 종료 조건 - 정답 발견
+def dfs(curr, target, words, visited, depth):
     if curr == target:
         return depth
     
-    min_depth = float('inf')
-    for i, word in enumerate(words):
-        if not visited[i] and diff_str(curr, word) == 1:
-            visited[i] = True
+    min_depth = 100
+    for idx, word in enumerate(words):
+        if not visited[idx] and find_word_one_diff(curr, word) == 1:
+            visited[idx] = True
             result = dfs(word, target, words, visited, depth + 1)
-            if result != -1:
-                min_depth = min(min_depth, result)
-            visited[i] = False
+            min_depth = min(min_depth, result)
+            visited[idx] = False  # 백트래킹, 이후 다시 방문 가능하게 고치기
             
-    return min_depth if min_depth != float('inf') else -1
-                
+    return min_depth
+        
 
 def solution(begin, target, words):
-    
+    depth = 0
     if target not in words:
         return 0
     
-    visited = [False] * len(words)
-    depth = 0
+    visited = [False]*len(words)
     result = dfs(begin, target, words, visited, depth)
-    
-    return result if result != -1 else 0
+
+    return 0 if result == 100 else result
 
 
 
