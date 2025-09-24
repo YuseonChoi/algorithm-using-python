@@ -9,18 +9,20 @@ def dfs(start, tickets, visited, path, n):
         if ticket[0] == start and visited[idx] == 0:
             visited[idx] = 1
             path.append(ticket[1])
+            print(path)
             answer = dfs(ticket[1], tickets, visited, path, n)
             # None이 아니라 유효한 경로면 바로 반환
             if answer:
                 return answer
             # 백트래킹 (어차피 문제 조건 상 모든 도시를 방문하게 되어 있음)
+            # 재귀 호출이 돌아가며 여러 단계 전 상태로 back
             path.pop()
             visited[idx] = 0
     return None
     
     
 def solution(tickets):
-    tickets.sort()  # 사전순 탐색을 위해 정렬
+    # tickets.sort()  # 사전순 탐색을 위해 정렬
     path = ["ICN"]
     n = len(tickets)
     visited = [0]*n
