@@ -1,6 +1,6 @@
 """ <최소 직사각형> https://school.programmers.co.kr/learn/courses/30/lessons/86491 """
 
-""" solution - 내 풀이 """
+""" solution 1 - 내 풀이 """
 
 def solution(sizes):
     
